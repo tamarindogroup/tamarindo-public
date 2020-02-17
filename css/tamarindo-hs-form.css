@@ -21,12 +21,16 @@
 
 /* Labels (selects field labels and error messages) */
 .hs-form label {
-      color: #0b4a65;
+    color: #0b4a65;
     font-family: gill-sans-nova, arial, sans-serif;
     font-weight: 500;
     font-size: 18px;
   }
-.hs-form .hs-form-field > label {}
+
+/* this selects field headings only, not e.g. checkbox labels*/
+.hs-form .hs-form-field > label {
+  font-weight: 600;
+}
 
 /* Inputs (selectors for all inputs)  */
 .hs-form input[type="text"],
@@ -49,9 +53,9 @@
   {
   color: black;
   font-size: 16px;
-    height: 50px;
-    border: none;
-    padding: 10px;
+  height: 50px;
+  border: none;
+  padding: 10px;
   }
 
 /* Inputs in focus (selectors for all inputs when clicked)  */
@@ -86,9 +90,9 @@
 
 .hs-form form.hs-form .hs-form-field ul.inputs-list li input {}
 .hs-form input[type="radio"] {}
-.hs-form input[type="checkbox"] {
+.hs-form input[type="checkbox"], .hs-form input[type="radio"] {
   margin-right: 10px;
-  transform: scale(1.2);
+  /*transform: scale(1.2);*/
   border: none;
   }
 
@@ -201,7 +205,7 @@ body input[type="button"]:focus {}
   .hs-form .hs-error-msgs label {
     color: #ffd91c;
   }
-  input:not([type="checkbox"]) {
+  input:not([type="checkbox"]):not([type="radio"]) {
     width: 100%;
   }
   
@@ -216,8 +220,8 @@ body input[type="button"]:focus {}
     transform: none;
   }
   .hs-richtext {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
   .hs-richtext a {
     color:white !important;
