@@ -20,15 +20,14 @@
 .hs-form .hs-field-desc {}
 
 /* Labels (selects field labels and error messages) */
-.hs-form label {
-    color: #0b4a65;
+.hs-form label, .hs-form .hs-richtext h6 {
     font-family: gill-sans-nova, arial, sans-serif;
     font-weight: 300;
     font-size: 18px;
   }
 
 /* this selects field headings only, not e.g. checkbox labels*/
-.hs-form .hs-form-field > label {
+.hs-form .hs-form-field > label, .hs-form .hs-richtext h6 {
   font-weight: 600;
   margin-top: 40px;
   border-left: solid 10px #e1b636;
@@ -167,13 +166,8 @@ body input[type="button"] {
 word-wrap: break-word;
   }
 
-body .hs-button.primary:hover,
-body input[type="submit"]:hover,
-body input[type="button"]:hover {
-      background-color: white;
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
+body .hs-button.primary:hover, body input[type="submit"]:hover, body input[type="button"]:hover {
+    background-color: white;
     color: #0b4a65;
     border: 2px solid #0b4a65;
   
@@ -215,8 +209,9 @@ body input[type="button"]:focus {}
   }
   
   body .hs-button.primary, body input[type="submit"], body input[type="button"] {
-    background-color: white;
-    color: #0b4a65;
+    background-color: #0b4a65;
+    color: white;
+    border: 2px solid #0b4a65;
   }
   div.actions {
     margin-top: 40px;
