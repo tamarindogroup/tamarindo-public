@@ -1,7 +1,13 @@
 .hs-form label {
-	color: #0B4A65;
+	color: #333;
 }
 
 body .hs-button.primary, body input[type="submit"], body input[type="button"] {
     background-color: #0b4a65;
     color: white;
+}
+
+/*error messages*/
+.hs-form .hs-error-msgs label {
+    color: #ea6556;
+  }
