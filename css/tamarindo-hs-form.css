@@ -223,7 +223,8 @@ body input[type="button"]:focus {}
     margin-top: 40px;
   }
   .hs-richtext a {
-    color:white !important;
+    color:white;
+    color: #04798F;
   }
   .hs-form .legal-consent-container,  .hs-form .legal-consent-container label {
     color: #8f9193;
