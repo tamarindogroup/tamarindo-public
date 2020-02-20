@@ -1,0 +1,67 @@
+.agenda-headline-sponsor h5 {
+    color:white;
+    font-size: 14px;
+    font-family: gill-sans-nova, sans-serif;
+    text-transform: uppercase;
+    opacity: 0.8;
+
+
+}
+.agenda-headline-sponsor img {
+    width: 70px;
+    height: auto
+    max-width 80%;
+}
+.agenda-day2-sponsor h5 {
+    color: inherit;
+    font-size: 1rem;
+    font-family: inherit;
+}
+.agenda-day2-sponsor img {
+    width: 150px;
+    height: auto
+    max-width 80%;
+}
+.tabs .agenda-day2-sponsor a {
+    border: none;
+}
+
+.agenda-headline-sponsor {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:center;  
+}
+
+.agenda-headline-sponsor > * {
+    margin: 10px;
+}
+
+.page-agenda .container ul.tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    flex-wrap: wrap;
+}
+
+.page-agenda .container li {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 320px;
+}
+
+.page-agenda .tabs li a {
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .page-agenda .container ul.tabs {
+        flex-direction: column;
+    }
+    .page-agenda .container li {
+        flex-direction: row;
+    }
+}
