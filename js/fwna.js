@@ -1,6 +1,6 @@
 
 //add links to sponsors
-function addAllLinks () {
+function addAllLinks_v2 () {
 
 		function getNode(sponsor) {
 			return document.querySelector('img.img-fluid[alt=' + CSS.escape(sponsor) + ']'); 
@@ -59,9 +59,8 @@ function addAllLinks () {
 		}
 	}
 
-	addAllLinks() 
 
-function addIDToGallery() {
+function addIDToGallery_v2 () {
 
 e = document.getElementsByClassName('carousel-container');
 for(var i = 0; i < e.length; i++) {
@@ -74,63 +73,86 @@ return;
 }
 }
 
-addIDToGallery()
 
 
-function addSponsorsToAgenda() {
+function addSponsorsToAgenda () {
+
+	//if no agenda on page, don't run the script
+	if (document.querySelector(".page-agenda") == null) {
+		return;
+	}
+
 	var ag = {};
 	ag.sponsors = [{},{},{}];
 
 	ag.sponsors[0].name = "UL";
 	ag.sponsors[0].url = "https://www.ul.com";
 	ag.sponsors[0].type = "Headline Sponsor";
-	ag.sponsors[0].img = "";
+	ag.sponsors[0].img = "https://northamerica.financingwind.com/wp-content/uploads/2020/02/UL-white.png";
+	ag.sponsors[0].className = "agenda-headline-sponsor";
 
 	ag.sponsors[1].name = "";
 	ag.sponsors[1].url = "";
 	ag.sponsors[1].type = "Day 1 Sponsor";
 	ag.sponsors[1].img = "";
+	ag.sponsors[1].className = "agenda-day1-sponsor";
 
-	ag.sponsors[2].name = "Lockon";
+
+	ag.sponsors[2].name = "Lockton";
 	ag.sponsors[2].url = "https://global.lockton.com/";
 	ag.sponsors[2].type = "Day 2 Sponsor";
-	ag.sponsors[2].img = "";
+	ag.sponsors[2].img = "https://northamerica.financingwind.com/wp-content/uploads/2020/02/Lockton.png";
+	ag.sponsors[2].className = "agenda-day2-sponsor";
 
 	for (var i=0; i<ag.sponsors.length; i++) {
 
 		var sponsor = ag.sponsors[i];
-		var sponsorObjs = sponsor.objects
+		var sponsorObjs = sponsor.objects;
+		sponsorObjs = {};
 
-		sponsor.div = document.createElement("div");
-		sponsor.div.class = "agenda-host-sponsor";
+		sponsorObjs.div = document.createElement("div");
+		sponsorObjs.div.className = sponsor.className;
 
-		sponsor.link = document.createElement("a");
-		sponsor.link.href = sponsor.url;
+		sponsorObjs.link = document.createElement("a");
+		sponsorObjs.link.href = sponsor.url;
 
-		sponsor.text = document.createElement("img");
-		sponsor.text.innerHTML = sponsor.type;
+		sponsorObjs.text = document.createElement("h5");
+		sponsorObjs.text.innerHTML = sponsor.type;
 
-		sponsor.image = document.createElement("img");
-		sponsor.image.src = sponsor.img;
-		sponsor.image.alt = "UL"; 
+		sponsorObjs.image = document.createElement("img");
+		sponsorObjs.image.src = sponsor.img;
+		sponsorObjs.image.alt = sponsor.name; 
+
+		sponsorObjs.div.appendChild(sponsorObjs.text);
+		sponsorObjs.div.appendChild(sponsorObjs.link);
+		sponsorObjs.link.appendChild(sponsorObjs.image);
+
+		if(sponsor.name == "") {
+			//if no sponsor name set, sponsor does not exist yet, so skip this element in the loop
+			continue;
+		}
+
+		if(sponsor.type == "Headline Sponsor") {
+			//if sponsor is a headline sponsor, add the div to the page header
+			ag.parent = document.querySelector(".page-agenda .header h1").parentNode;
+			ag.parent.appendChild(sponsorObjs.div);
+		}
+
+		else if (sponsor.type == "Day 1 Sponsor") {
+			//if sponsor is Day 1, add the div to the second <li> under ul.tabs
+			ag.parent = document.querySelector(".page-agenda .container.schedule ul.tabs li:nth-child(2) ");
+			ag.parent.appendChild(sponsorObjs.div);
+		}
+
+		else if (sponsor.type == "Day 2 Sponsor") {
+			//if sponsor is Day 2, add the div to the third <li> under ul.tabs
+			ag.parent = document.querySelector(".page-agenda .container.schedule ul.tabs li:nth-child(3) ");
+			ag.parent.appendChild(sponsorObjs.div);
+		}
+
 	}
 
-
-	var sibling = document.querySelector(".page-agenda .header h1");
-	for(var i = 0; i < sibling.length; i++) {
-		var newDiv = document.createElement("div");
-			newDiv.class = "genda-host-sponsor";
-		var newLink = document.createElement("a");
-			newLink.href = "https://www.ul.com";
-		var newText = document.createElement("img");
-			newText.innerHTML="Day Sponsor";
-		var newImage = document.createElement("img");
-			newLink.src = "https://www.ul.com";
-			newLink.alt = "UL";
-
-
-
-return;
+	return;
 }
 
 /*deprecated functions
@@ -186,5 +208,5 @@ pageTitle.firstChild.data = "AGENDA 2019";
 if (window.location.href.match("agenda")) {
 //ModifyAgendaPageText();
 
-*/
-}
+
+}*/
