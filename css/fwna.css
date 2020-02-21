@@ -1,4 +1,4 @@
-.agenda-headline-sponsor h5 {
+/*.agenda-headline-sponsor h5, .agenda-day-sponsor h5 {
     color:white;
     font-size: 14px;
     font-family: gill-sans-nova, sans-serif;
@@ -9,20 +9,22 @@
 }
 .agenda-headline-sponsor img {
     width: 70px;
-    height: auto
     max-width 80%;
+    height: auto;
+    max-height: 60px;
 }
-.agenda-day2-sponsor h5 {
-    color: inherit;
-    font-size: 1rem;
-    font-family: inherit;
+.agenda-day-sponsor h5 {
+    color: black;
+    padding: 20px;
 }
-.agenda-day2-sponsor img {
-    width: 150px;
-    height: auto
+.agenda-day-sponsor img {
+    width: 120px;
     max-width 80%;
+    height: auto;
+    max-height: 60px;
+    
 }
-.tabs .agenda-day2-sponsor a {
+.tabs .agenda-day-sponsor a {
     border: none;
 }
 
@@ -60,8 +62,16 @@
 @media only screen and (max-width: 1200px) {
     .page-agenda .container ul.tabs {
         flex-direction: column;
+
     }
     .page-agenda .container li {
         flex-direction: row;
     }
-}
+
+    div.agenda-day-sponsor {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}*/
