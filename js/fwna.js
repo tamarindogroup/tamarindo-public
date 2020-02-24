@@ -1,48 +1,53 @@
 
 //add links to sponsors
-function addAllLinks_v2 () {
+function addAllLinks () {
 
-		function getNode(sponsor) {
-			return document.querySelector('img.img-fluid[alt=' + CSS.escape(sponsor) + ']'); 
-		}
+	function getNode(sponsor) {
+		return document.querySelector('img.img-fluid[alt=' + CSS.escape(sponsor) + ']'); 
+	}
 
-		function addLink(node, url, sponsor) {
-			var parentNode = node.parentNode;
-			//create link
-			var wrapperNode = document.createElement('a');
-			wrapperNode.setAttribute("href", url, sponsor);
-			wrapperNode.setAttribute("target", "_blank");
-			//set wrapper as child
-			parentNode.replaceChild(wrapperNode, node);
-			//set node as child of wrapper
-			wrapperNode.appendChild(node);
-		}
+	function addLink(node, url, sponsor) {
 
-		var json = {
-			"addresses":[
-			{"sponsor":"Greentech Capital Advisors", "url":"https://www.greentechcapital.com/"},
-			{"sponsor":"Holland & Hart", "url":"https://www.hollandhart.com/energy-and-resources"},
-			{"sponsor":"Jones Day", "url":"https://www.jonesday.com/en"},
-			{"sponsor":"KeyBank", "url":"https://www.key.com/businesses-institutions/industry-expertise/energy/overview.jsp"},
-			{"sponsor":"McDermott Will & Emery", "url":"https://www.mwe.com/industries/energy/renewable-energy/"},
-			{"sponsor":"Norton Rose Fulbright", "url":"https://www.nortonrosefulbright.com/en-US"},
-			{"sponsor":"Pierce Atwood", "url":"https://www.pierceatwood.com/practice-areas/energy-infrastructure-project-development-finance"},
-			{"sponsor":"Scout Clean Energy", "url":"http://www.scoutcleanenergy.com/"},
-			{"sponsor":"Utopus Insights", "url":"https://www.utopusinsights.com/"},
-			{"sponsor":"WilmerHale", "url":"https://www.wilmerhale.com/"},
-			{"sponsor":"AFRY", "url":"https://afry.com/en"},
-			{"sponsor":"Stantec", "url":"https://www.stantec.com/en"},
-			{"sponsor":"Principle Power", "url":"http://www.principlepowerinc.com/"},
-			{"sponsor":"Energy Acuity", "url":"https://energyacuity.com/"},
-			{"sponsor":"McGuireWoods", "url":"https://www.mcguirewoods.com/"},
-			{"sponsor":"UL", "url":"https://www.ul.com/"},
-			{"sponsor":"Lockton", "url":"https://global.lockton.com/"},
-			{"sponsor":"GreenbergTraurig", "url":"https://www.gtlaw.com/en"},
-			{"sponsor":"AWEA", "url":"https://www.awea.org/"},
-			{"sponsor":"BloombergNewEnergyFinance", "url":"https://about.bnef.com/"},
-			{"sponsor":"Alliant", "url":"http://www.alliant.com/pages/default.aspx"},
-			]
-		}
+	var parentNode = node.parentNode;
+		//create link
+		var wrapperNode = document.createElement('a');
+		wrapperNode.setAttribute("href", url, sponsor);
+		wrapperNode.setAttribute("target", "_blank");
+		//set wrapper as child
+		parentNode.replaceChild(wrapperNode, node);
+		//set node as child of wrapper
+		wrapperNode.appendChild(node);
+	}
+
+	var json = {
+		"addresses":[
+		{"sponsor":"Greentech Capital Advisors", "url":"https://www.greentechcapital.com/"},
+		{"sponsor":"Holland & Hart", "url":"https://www.hollandhart.com/energy-and-resources"},
+		{"sponsor":"Jones Day", "url":"https://www.jonesday.com/en"},
+		{"sponsor":"KeyBank", "url":"https://www.key.com/businesses-institutions/industry-expertise/energy/overview.jsp"},
+		{"sponsor":"McDermott Will & Emery", "url":"https://www.mwe.com/industries/energy/renewable-energy/"},
+		{"sponsor":"Norton Rose Fulbright", "url":"https://www.nortonrosefulbright.com/en-US"},
+		{"sponsor":"Pierce Atwood", "url":"https://www.pierceatwood.com/practice-areas/energy-infrastructure-project-development-finance"},
+		{"sponsor":"Scout Clean Energy", "url":"http://www.scoutcleanenergy.com/"},
+		{"sponsor":"Utopus Insights", "url":"https://www.utopusinsights.com/"},
+		{"sponsor":"WilmerHale", "url":"https://www.wilmerhale.com/"},
+		{"sponsor":"AFRY", "url":"https://afry.com/en"},
+		{"sponsor":"Stantec", "url":"https://www.stantec.com/en"},
+		{"sponsor":"Principle Power", "url":"http://www.principlepowerinc.com/"},
+		{"sponsor":"Energy Acuity", "url":"https://energyacuity.com/"},
+		{"sponsor":"McGuireWoods", "url":"https://www.mcguirewoods.com/"},
+		{"sponsor":"UL", "url":"https://www.ul.com/"},
+		{"sponsor":"Lockton", "url":"https://global.lockton.com/"},
+		{"sponsor":"GreenbergTraurig", "url":"https://www.gtlaw.com/en"},
+		{"sponsor":"AWEA", "url":"https://www.awea.org/"},
+		{"sponsor":"BloombergNewEnergyFinance", "url":"https://about.bnef.com/"},
+		{"sponsor":"Alliant", "url":"http://www.alliant.com/pages/default.aspx"},
+		{"sponsor":"DVN GL", "url":"https://www.dnvgl.com/index.html"},
+		]
+
+	}
+
+	function processJSON () {
 
 		for (var i = 0; i < json.addresses.length; i++) {
 			var url = json.addresses[i].url;
@@ -57,25 +62,44 @@ function addAllLinks_v2 () {
 				console.log("Couldn't find: " + sponsor);
 			}
 		}
+
+	}
+
+	processJSON()
+
+	// var json_link = "https://dl.dropbox.com/s/44s2nvffe2srmfz/fwna-sponsors-2020.json";
+	// let request = new XMLHttpRequest();
+	// request.open('GET', json_link);
+	// request.responseType = 'json';
+	// request.send();
+	// request.onload = function() {
+	// 	var json_live = request.response;
+	// 	processJSON(json_live);
+	// }
+
+
+}	
+
+
+
+
+	function addIDToGallery () {
+
+		e = document.getElementsByClassName('carousel-container');
+
+		for(var i = 0; i < e.length; i++) {
+		    // Only if there is only single class
+		    if(e[i].className == 'carousel-container') {
+		        // Do something with the element e[i]
+		        e[i].id="gallery";
+		        return;
+		    }
+		}
 	}
 
 
-function addIDToGallery_v2 () {
 
-e = document.getElementsByClassName('carousel-container');
-for(var i = 0; i < e.length; i++) {
-    // Only if there is only single class
-    if(e[i].className == 'carousel-container') {
-        // Do something with the element e[i]
-       e[i].id="gallery";
-return;
-    }
-}
-}
-
-
-
-function addSponsorsToAgenda () {
+	function addSponsorsToAgenda () {
 
 	//if no agenda on page, don't run the script
 	if (document.querySelector(".page-agenda") == null) {
