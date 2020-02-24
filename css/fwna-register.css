@@ -1,0 +1,323 @@
+<style>
+
+.fwna-table-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.fwna-table {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+}
+
+.fwna-feature-list {
+  min-height: 380px;
+}
+
+.fwna-feature {
+  border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+
+.fwna-ticket {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 10px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.fwna-header-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 140px;
+  margin-bottom: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.fwna-header {
+  color: #e1b636;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.fwna-header.past {
+  color: #444;
+}
+
+.fwna-end-date {
+  color: #f80;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.fwna-end-date.past {
+  color: #444;
+}
+
+.fwna-price-container {
+  height: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.fwna-price {
+  margin-top: 10px;
+  color: #e1b636;
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.fwna-price.past {
+  color: #444 !important;
+}
+
+.fwna-feature-text {
+  margin-top: 5px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 0px;
+}
+
+.fwna-feature-text.number {
+  margin-top: 2px;
+  color: #e1b636;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.fwna-feature-text.before-number {
+  margin-bottom: 2px;
+}
+
+.fwna-feature-text.double {
+  min-height: 40px;
+}
+
+.fwna-feature-text.past {
+  color: #444;
+}
+
+.fwna-pricing {
+  font-family: gill-sans-nova, sans-serif;
+  text-align: center;
+}
+
+.ticket-container {
+  max-width: 300px;
+  min-width: 300px;
+  margin: 10px 5px;
+  padding: 5px 6px;
+  background-color: #04798f;
+
+}
+
+.ticket-container.vip {
+  background-color: #0b4a65;
+}
+
+.ticket-container.fwna-earlybird.past {
+  background-color: #999;
+}
+
+.ticket-container.standard {
+  background-color: #04798f;
+}
+
+.ticket-container.gala {
+  background-color: #444;
+}
+
+.fwna-code-p {
+  color: #f80;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.fwna-code-p.past {
+  color: #444 !important;
+}
+
+.fwna-button-container {
+  margin-top: 20px;
+  margin-bottom: 10px;
+    position: absolute;
+  bottom: 0px;
+}
+
+.fwna-button-text {
+  margin-top: 0px;
+  margin-bottom: 5px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.fwna-button {
+  padding: 10px 20px;
+  border: 2px solid #fff;
+  text-decoration: none;
+}
+
+
+
+/*custom CSS*/
+
+  /*.ticket-container {
+    outline: 2px white solid;
+    outline-offset: -4px;
+  }*/
+  
+  .container.tickets {
+ max-width: unset;
+}
+.container.tickets .col-12 {
+    flex: unset;
+    max-width: unset;
+}
+.container.tickets .ticket {
+    background: none;
+}
+.container.tickets .border {
+    border: none !important;
+}
+ul.fwna-feature-list.w-list-unstyled {
+    padding-inline-start: 0px !important;
+}
+h2.fwna-header {
+    font-size: 25px !important;
+    font-weight: 400 !important;
+}
+.fwna-header-container {
+    min-height: 120px !important;
+}
+.ticket-container {
+  -webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5);
+-moz-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5);
+box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5);
+}
+/*extra*/
+.container.tickets {
+    max-width: unset;
+}
+.fwna-button {
+    display: block;
+}
+.fwna-ticket {
+    position: relative;
+    margin-bottom: 200px;
+    align-items: center;
+}
+.fwna-footer {
+    position: absolute;
+    bottom: 0;
+    /* margin: 0 auto; */
+    padding: 20px 10px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.fwna-price-container {
+    height: unset;
+    position: absolute;
+    bottom: 100px;
+}
+h3.fwna-price {
+    font-size: 36px !important;
+    font-weight: 300 !important;
+}
+ul.fwna-feature-list.w-list-unstyled {
+    min-height: unset;
+    list-style-type: none;
+}
+.fwna-button:hover {
+    background-color: white;
+    color: #0b4a65 !important;
+    text-decoration: none !important;
+}
+.fwna-button:hover .fwna-button-text {
+  text-decoration: none !important;
+        color: #0b4a65 !important;
+    }
+.btn.btn-outline-light {
+  display: none;
+}
+p > a.fwna-button.w-inline-block {
+  display: none !important;
+}
+div.fwna-button-container > a > p:nth-child(1) {
+  display: none;
+}
+.fwna-table > p, .fwna-table-container > p,  .ticket-container > p, .fwna-ticket > p {
+  display: none;
+}
+  
+</style>
