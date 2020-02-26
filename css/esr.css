@@ -1,0 +1,22 @@
+.mh-image-placeholder { display: none; }
+
+/*inserts additional header image*/
+.esr-top-header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.awaw-div {
+	background-image: url(http://energystoragereport.info/wp/wp-content/uploads/2019/07/PoweredByAWAW.png);
+	width: 32vw;
+	height: 8vw;
+	background-repeat: no-repeat;
+	background-size: cover;
+	max-height: 100px;
+	max-width: 400px;
+	min-width: 200px;
+	min-height: 50px;
+	margin: 10px;
+}
