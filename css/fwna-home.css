@@ -1,0 +1,7 @@
+.custom-html-container {
+background-color: #ffd92c;
+}
+
+.custom-html-container br {
+display: none;
+}
