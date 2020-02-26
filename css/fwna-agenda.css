@@ -1,3 +1,67 @@
+/*Agenda styling*/
+
+.row.mb-3:nth-child(1) .date, .row.mb-3:nth-child(1)  .sponsor {
+    display:none
+    }
+.row.mb-3:nth-child(1) .item-name {
+    text-transform: uppercase;
+    font-size: 28px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: #104a65;
+    border-top: 2px solid #104a65;
+    text-align: center;
+    padding: 10px;
+}
+.row.mb-3:nth-child(1) em {
+    font-size: 18px;
+    font-style: normal !important;
+}
+
+.row.mb-3:nth-child(1) p {
+    line-height: 1.2;
+}
+
+.row.mb-3:nth-child(1) {
+    padding: 0px 20px 10px 20px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+.row.mb-3:nth-child(1) .text-left {
+    display: none;
+}
+
+.row.mb-3:nth-child(1) .col-md-9 {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+    padding: 0px !important;
+    padding: 10px 40px 40px 40px !important;
+}
+
+.row.mb-3 .col-12:nth-child(1) {
+    display: none;
+}
+
+@media screen and (max-width: 576px) {
+    .row.mb-3:nth-child(1) .col-md-9 {
+        padding: 10px 10px 10px 10px !important;
+    }
+}
+
+.tabs {
+padding-inline-start: 0px;
+}
+
+
+
+
+
+
+
+/*Sponsor styling*/
+
 /*.agenda-headline-sponsor h5, .agenda-day-sponsor h5 {
     color:white;
     font-size: 14px;
@@ -74,4 +138,4 @@
         flex-wrap: wrap;
         align-items: center;
     }
-}*/
+}
