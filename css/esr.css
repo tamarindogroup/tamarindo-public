@@ -8,15 +8,56 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
-.awaw-div {
-	background-image: url(http://energystoragereport.info/wp/wp-content/uploads/2019/07/PoweredByAWAW.png);
+.tg-div {
+	background-image: url(http://energystoragereport.info/wp/wp-content/uploads/2020/02/ESR-TG-Banner-1.png);
 	width: 32vw;
 	height: 8vw;
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: contain;
 	max-height: 100px;
 	max-width: 400px;
 	min-width: 200px;
 	min-height: 50px;
 	margin: 10px;
+}
+
+/*update site colours with new branding*/
+.main-nav {
+	background-color: #2A2A2A;
+}
+
+.widget-title span, .button span, .pagination .current, input[type=submit], .comment-section-title span {
+	background-color: #193075;
+}
+
+.entry-content a {
+	color: #193075;
+}
+
+.main-nav li:hover {
+	background-color: #178D94;
+}
+
+h1, h2, h3, h4, h5, h6, .mh-footer, .widget-list li, .cat-item, .page_item, .menu-item, .button, .submit, .commentlist .vcard, .pagination {
+
+font-family: franklin-gothic-urw, sans-serif;
+font-weight: 500;
+font-style: normal;
+line-height: 1.1;     
+
+}
+
+body, p {
+font-family: gill-sans-nova, sans-serif;
+font-weight: 400;
+line-height: 1.5;
+color: #2a2a2a;
+}
+
+.wrapper-inner .copyright {
+	display: none;
+}
+
+.wrapper-inner .copyright-new {
+	color: white;
 }
