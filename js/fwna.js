@@ -43,6 +43,8 @@ function addAllLinks () {
 		{"sponsor":"BloombergNewEnergyFinance", "url":"https://about.bnef.com/"},
 		{"sponsor":"Alliant", "url":"http://www.alliant.com/pages/default.aspx"},
 		{"sponsor":"DVN GL", "url":"https://www.dnvgl.com/index.html"},
+		{"sponsor":"ON&T", "url":"https://www.oceannews.com"},
+		{"sponsor":"OffshoreSource", "url":"https://www.offshoresource.com"}
 		]
 
 	}
