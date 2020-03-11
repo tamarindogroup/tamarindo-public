@@ -44,7 +44,10 @@ function addAllLinks () {
 		{"sponsor":"Alliant", "url":"http://www.alliant.com/pages/default.aspx"},
 		{"sponsor":"DVN GL", "url":"https://www.dnvgl.com/index.html"},
 		{"sponsor":"ON&T", "url":"https://www.oceannews.com"},
-		{"sponsor":"OffshoreSource", "url":"https://www.offshoresource.com"}
+		{"sponsor":"OffshoreSource", "url":"https://www.offshoresource.com"},
+		{"sponsor":"aggreko", "url":"https://www.aggreko.com/"},
+		{"sponsor":"GCube", "url":"http://www.gcube-insurance.com/"},
+		{"sponsor":"Greenbyte", "url":"https://www.greenbyte.com/"},
 		]
 
 	}
