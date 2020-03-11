@@ -5,3 +5,12 @@ background-color: #ffd92c;
 .custom-html-container br {
 display: none;
 }
+
+.page-banner {
+	margin-top: 90px;
+}
+
+.page-banner a {
+	text-decoration: underline;
+	color: #0B4A65;
+}
