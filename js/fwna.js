@@ -120,18 +120,20 @@ function addAllLinks () {
 	ag.sponsors[0].img = "https://northamerica.financingwind.com/wp-content/uploads/2020/02/UL-white.png";
 	ag.sponsors[0].className = "agenda-headline-sponsor";
 
-	ag.sponsors[1].name = "";
-	ag.sponsors[1].url = "";
+	ag.sponsors[1].name = "Lockton";
+	ag.sponsors[1].url = "https://global.lockton.com/";
 	ag.sponsors[1].type = "Day 1 Sponsor";
-	ag.sponsors[1].img = "";
+	ag.sponsors[1].img = "https://northamerica.financingwind.com/wp-content/uploads/2020/02/Lockton.png";
 	ag.sponsors[1].className = "agenda-day-sponsor";
 
-
-	ag.sponsors[2].name = "Lockton";
-	ag.sponsors[2].url = "https://global.lockton.com/";
+	ag.sponsors[2].name = "";
+	ag.sponsors[2].url = "";
 	ag.sponsors[2].type = "Day 2 Sponsor";
-	ag.sponsors[2].img = "https://northamerica.financingwind.com/wp-content/uploads/2020/02/Lockton.png";
+	ag.sponsors[2].img = "";
 	ag.sponsors[2].className = "agenda-day-sponsor";
+
+
+
 
 	for (var i=0; i<ag.sponsors.length; i++) {
 
