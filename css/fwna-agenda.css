@@ -62,7 +62,7 @@ padding-inline-start: 0px;
 
 /*Sponsor styling*/
 
-/*.agenda-headline-sponsor h5, .agenda-day-sponsor h5 {
+.agenda-headline-sponsor h5, .agenda-day-sponsor h5 {
     color:white;
     font-size: 14px;
     font-family: gill-sans-nova, sans-serif;
@@ -75,7 +75,6 @@ padding-inline-start: 0px;
     width: 70px;
     max-width 80%;
     height: auto;
-    max-height: 60px;
 }
 .agenda-day-sponsor h5 {
     color: black;
@@ -85,7 +84,6 @@ padding-inline-start: 0px;
     width: 120px;
     max-width 80%;
     height: auto;
-    max-height: 60px;
     
 }
 .tabs .agenda-day-sponsor a {
@@ -137,5 +135,12 @@ padding-inline-start: 0px;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
+    }
+
+    .agenda-day-sponsor h5 {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
     }
 }
