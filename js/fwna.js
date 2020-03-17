@@ -110,6 +110,13 @@ function addAllLinks () {
 	if (document.querySelector(".page-agenda") == null) {
 		return;
 	}
+	if (document.querySelector(".archive.post-type-archive.post-type-archive-news") != null) {
+		return;
+	}
+	if (document.querySelector(".news-template-default.single.single-news") != null) {
+		return;
+	}
+
 
 	var ag = {};
 	ag.sponsors = [{},{},{}];
