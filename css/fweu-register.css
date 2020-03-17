@@ -497,8 +497,42 @@ a.fweu-button p:first-child {
   display: none;
 }
 
+p.fweu-button-text {
+  display: inline-block;
+}
 
+.fweu-register-contact-p > a {
+    text-decoration: underline;
+    color: gold;
+    }
 
+p.fweu-register-contact-p {
+    color: white;
+}
+
+div.fweu-register-contact-wrapper {
+  display: flex;
+  flex-direction: vertical;
+  justify-content: center;
+  align-content: center;
+}
+
+div.fweu-register-contact {
+  min-height: 100px;
+  max-width: 600px;
+  border: 1px white solid;
+  padding: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.fweu-register-contact {
+  scroll-snap-align: center;
+}
+
+.page-register .tickets {
+    margin-top: -20rem !important;
+}
 /*.fweu-table p:not('p.fweu-feature-text') {
   display: none;
 }*/
