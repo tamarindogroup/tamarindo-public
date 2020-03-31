@@ -94,7 +94,7 @@
 .hs-form form.hs-form .hs-form-field ul.inputs-list li input {}
 .hs-form input[type="radio"] {}
 .hs-form input[type="checkbox"], .hs-form input[type="radio"] {
-  margin-right: 10px;
+  margin-right: 10px !important;
   /*transform: scale(1.2);*/
   border: none;
   }
