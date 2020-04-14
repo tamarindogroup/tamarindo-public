@@ -48,6 +48,7 @@ function addAllLinks () {
 		{"sponsor":"aggreko", "url":"https://www.aggreko.com/"},
 		{"sponsor":"GCube", "url":"http://www.gcube-insurance.com/"},
 		{"sponsor":"Greenbyte", "url":"https://www.greenbyte.com/"},
+		{"sponsor":"Great Bay Renewables", "url":"https://www.greatbayrenewables.com/"},
 		]
 
 	}
