@@ -241,5 +241,6 @@ body input[type="button"]:focus {}
   }
 
   legend.hs-field-desc {
-    color:white;
+    color:white
+    margin-top: 40px !important;
   }
