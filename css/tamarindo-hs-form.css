@@ -239,3 +239,7 @@ body input[type="button"]:focus {}
   div.submitted-message p {
     color: white;
   }
+
+  legend.hs-field-desc {
+    color:white;
+  }
