@@ -81,7 +81,10 @@
 .hs-form select:focus {}
 
 /* Multi-line inputs (selectors to target multi-line fields */
-.hs-form textarea {}
+.hs-form textarea {
+  width: 100%;
+  height: 200px;
+}
 .hs-form textarea:focus {}
 
 /* Dropdowns (selectors for dropdowns) */
@@ -241,6 +244,6 @@ body input[type="button"]:focus {}
   }
 
   legend.hs-field-desc {
-    color:white
+    color:white;
     margin-top: 40px !important;
   }
