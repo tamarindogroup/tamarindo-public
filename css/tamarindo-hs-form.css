@@ -143,8 +143,8 @@
    ========================================================================== */
 
 body .hs-button.primary,
-body input[type="submit"],
-body input[type="button"] {
+body .hs-form input[type="submit"],
+body .hs-form input[type="button"] {
   align-items: center; */
     /* text-align: center; */
     /* font-size: 18px; */
@@ -169,7 +169,7 @@ body input[type="button"] {
 word-wrap: break-word;
   }
 
-body .hs-button.primary:hover, body input[type="submit"]:hover, body input[type="button"]:hover {
+body .hs-button.primary:hover, body .hs-form input[type="submit"]:hover, body .hs-form input[type="button"]:hover {
     background-color: white;
     color: #0b4a65;
     border: 2px solid #0b4a65;
@@ -177,24 +177,25 @@ body .hs-button.primary:hover, body input[type="submit"]:hover, body input[type=
   }
 
 body .hs-button.primary:focus,
-body input[type="submit"]:focus,
-body input[type="button"]:focus {}
+body .hs-form input[type="submit"]:focus,
+body .hs-form input[type="button"]:focus {}
   
-  div.actions {
+  .hs-form div.actions {
     text-align: center;
   }
   
-  div.submitted-message p {
+  .hs-form div.submitted-message p, .hbspt-form div.submitted-message p {
       font-size: 18px;
       text-align: center;
       line-height: 1.5;
+      color: white;
   }
 
-  fieldset {
+  .hs-form fieldset {
     margin-top: 20px !important;
   }
   
-  div.input[data-reactid~="categories_of_interest"] {
+  .hs-form div.input[data-reactid~="categories_of_interest"] {
     padding-left: 10px;
   }
   
@@ -207,16 +208,16 @@ body input[type="button"]:focus {}
   .hs-form .hs-error-msgs label {
     color: #ffd91c;
   }
-  input:not([type="checkbox"]):not([type="radio"]) {
+  .hs-form input:not([type="checkbox"]):not([type="radio"]) {
     width: 100%;
   }
   
-  body .hs-button.primary, body input[type="submit"], body input[type="button"] {
+  body .hs-button.primary, body .hs-form input[type="submit"], .hs-form body input[type="button"] {
     background-color: #0b4a65;
     color: white;
     border: 2px solid #0b4a65;
   }
-  div.actions {
+  .hs-form div.actions {
     margin-top: 40px;
   }
   .hs-form input[type="checkbox"] {
@@ -239,11 +240,11 @@ body input[type="button"]:focus {}
     font-size: 16px;
   }
 
-  div.submitted-message p {
+  .hs-form div.submitted-message p {
     color: white;
   }
 
-  legend.hs-field-desc {
+  .hs-form legend.hs-field-desc {
     color:white;
     margin-top: 40px !important;
   }
