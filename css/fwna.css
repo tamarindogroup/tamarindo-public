@@ -396,3 +396,11 @@ margin-top: 75px;
     background-size: contain;
     max-height: 200px;
 }
+
+/*fixes egg speakers on mobile*/
+@media screen and (max-width: 476px) {
+    #speakers .col-6 {
+        max-width: none;
+        flex:; unset;  
+        }
+    }
