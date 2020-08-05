@@ -49,7 +49,8 @@ function addAllLinks () {
 		{"sponsor":"GCube", "url":"http://www.gcube-insurance.com/"},
 		{"sponsor":"Greenbyte", "url":"https://www.greenbyte.com/"},
 		{"sponsor":"Great Bay Renewables", "url":"https://www.greatbayrenewables.com/"},
-		]
+		{"sponsor":"MHI Vestas", "url":"https://www.mhivestasoffshore.com/"},
+]
 
 	}
 
