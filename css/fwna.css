@@ -340,10 +340,15 @@ body.single-news .post-date {
 
 /*hiding venue details*/
 .venue-page #venue, .venue-page #map, .venue-page #info {
-    xdisplay: none;
+}
+.venue-page #map {
+    display: none;
 }
 .venue-page #info {
     display: none;
+}
+.venue-page #venue-cta-1 {
+    margin-bottom: 60px;
 }
 
 /*Fix egg speakers*/
