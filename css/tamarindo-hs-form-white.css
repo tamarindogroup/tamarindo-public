@@ -1,0 +1,17 @@
+.hs-form label {
+color: #444;
+}
+
+.hs-form input {
+    border: 1pt solid grey !important;
+}
+
+.hs-form .hs-error-msgs label {
+color: orange;
+}
+
+.hs-form .hs-form-field > label, .hs-form .hs-richtext h6 {
+border-left: none;
+margin-left: none;
+padding-left: none;
+}
