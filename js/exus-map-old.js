@@ -1,5 +1,8 @@
 
 //move this code into the WF embed on completion ***
+//update CMS for states so state's parent country name exactly matches country name
+
+
 
 //not currently using this location script since we want to just load all content in map view at the start
 //this needs tidying up
@@ -11,6 +14,12 @@ function geoip(json){
     console.log("latitude is " + latitude);
     }
 
+
+
+
+
+
+
 //load map when DOM loaded, which means we can wait for jQuery
 window.addEventListener('DOMContentLoaded', function() {
 
@@ -20,19 +29,23 @@ window.addEventListener('DOMContentLoaded', function() {
     //lookup obj for countries to avoid looping through countries arr lots of times
     var countriesLookup = {};
     for (let i = 0; i < exusData.countries.length; i++) {
-        countriesLookup[exusData.countries[i].properties.countryID] = exusData.countries[i];
+        countriesLookup[exusData.countries.properties.name] = exusData.countries[i];
     }
 
     //Loop through states with data and append them to their parent country - currently using countryID as the key to match by
     for (let i = 0; i < exusData.states.length; i++) {
         var myState = exusData.states[i];
         if(!myState.properties.countryID) continue; //if no countryID assigned, skip this state
-        var myID = myState.properties.countryID;
-        if(!countriesLookup[myID]) continue //if no country with this countryID exists, skip this state
-        countriesLookup[myID].properties.states = countriesLookup[myID].properties.states || []; //create arr if does not exist
-        countriesLookup[myID].properties.states.push(myState); //add state to country
-        //console.log(myState.properties.name + " matched to " + countriesLookup[myID].properties.name)
+        if(countriesLookup[myState.properties.countryID]) { //if a country with this countryID exists
+            countriesLookup[myState.properties.countryID].properties.states || []; //create arr if does not exist
+            countriesLookup[myState.properties.countryID].properties.states.push(myState); //add state to country
+            console.log(myState.properties.name + " matched to " + countriesLookup[myState.properties.countryID])
+        }
     }
+
+
+
+
 
     //initialize map
     //var map = L.map('mapid').setView([51.505, -0.09], 2); //this needs to be not hard coded ***
@@ -58,7 +71,7 @@ window.addEventListener('DOMContentLoaded', function() {
         id: 'mapbox/light-v10',
         tileSize: 512,
         zoomOffset: -1,
-        accessToken: 'pk.eyJ1IjoiZXh1c3BhcnRuZXJzIiwiYSI6ImNrbXhrM2kyNDBudHYzMXBmNm00dnp2eHYifQ.ji4-DweeB-OgghbdmSyp6Q'
+        accessToken: 'pk.eyJ1IjoidGFtYXJpbmRvIiwiYSI6ImNraTRzaDkwdjNlcGcyenA1ZW1wYXZoYWoifQ.MEvZG-TX5jERN3Nmox1xkw'
     }).addTo(map);
 
 
@@ -73,54 +86,55 @@ window.addEventListener('DOMContentLoaded', function() {
         popupAnchor:  [0, -68] // point from which the popup should open relative to the iconAnchor
         });
 
-
- 
-    //****************************************//
-    //Get office markers
-    
-    /*
-    All fields are loaded into the exusData object by the Webflow embed script, but we can't load the address properly if it contains line breaks.
-    Instead we load the address from a hidden text element in the DOM. A sibling text element contains the office name, which we can match against.
-    */
-
     //array to hold office markers
     exusData.officemarkers = [];
+    //are we using this? ***
+    exusData.officeCounter = 0;
+
+    //get office markers
+    /*
+    all fields are loaded into the exusData object by the Webflow embed script, but we can't load the address properly if it contains line breaks.
+    Instead we load the address from a hidden text element in the DOM. A sibling text element contains the office name, which we can match against.
+    */
 
     //first get all elements in DOM with the office name class
     var officeNameElArr = document.querySelectorAll(".data-text--office-name");
 
     //loop through offices
-    for (let j = 0; j < exusData.offices.length; j++) {
-        var myOffice = exusData.offices[j];
-        //loop through office name elements
-        for (let i = 0; i < officeNameElArr.length; i++) {
-            //if the name of the office in the DOM element matches our current office
-            if(officeNameElArr[i].innerHTML == myOffice.name) { 
-                //get the sibling element which we hope contains the address text. Check it has the right class. 
-                var officeAddressEl = officeNameElArr[i].nextElementSibling;
-                while (officeAddressEl) {
-                    if (officeAddressEl.matches(".data-text--office-address")) break;
-                    officeAddressEl = officeAddressEl.nextElementSibling;
+    for (var office in exusData.offices) {
+        if (exusData.offices.hasOwnProperty(office)) {
+            var myOffice = exusData.offices[office];
+            //loop through office name elements
+            for (let i = 0; i < officeNameElArr.length; i++) {
+                //if the name of the office in the DOM element matches our current office
+                if(officeNameElArr[i].innerHTML == office) { 
+                    //get the sibling element which we hope contains the address text. Check it has the right class. 
+                    var officeAddressEl = officeNameElArr[i].nextElementSibling;
+                    while (officeAddressEl) {
+                        if (officeAddressEl.matches(".data-text--office-address")) break;
+                        officeAddressEl = officeAddressEl.nextElementSibling;
+                    }
                 }
             }
+            //update exusData obj with address
+            myOffice.address = officeAddressEl.innerHTML;
+            //convert string coords to latlong array - unclear if necessary ***
+            myOffice.latlong = L.latLng(myOffice.latitude, myOffice.longitude);
+
+            //popup v2
+            exusData.officePopup = "<div class='exus-popup__content'><div class='exus-popup__head'>" + myOffice.name + "</div><a href='/contact' class='exus-popup__link'>Contact</a></div>";
+            exusData.customPopupOptions = {
+                'maxWidth': '500',
+                'className': 'exus-popup'
+            }
+
+            //put a pin in it and bind popup ***
+            // myOffice.marker = L.marker(myOffice.latlong, {icon: officeIcon}).bindPopup(myOffice.name);
+            myOffice.marker = L.marker(myOffice.latlong, {icon: officeIcon}).bindPopup(exusData.officePopup, exusData.customPopupOptions);
+            //also push this marker into an array
+            exusData.officemarkers.push(myOffice.marker);
+
         }
-        //update exusData obj with address
-        myOffice.address = officeAddressEl.innerHTML;
-        //convert string coords to latlong array - unclear if necessary ***
-        myOffice.latlong = L.latLng(myOffice.latitude, myOffice.longitude);
-
-        //popup v2
-        exusData.officePopup = "<div class='exus-popup__content'><div class='exus-popup__head'>" + myOffice.name + "</div><a href='/contact' class='exus-popup__link'>Contact</a></div>";
-        exusData.customPopupOptions = {
-            'maxWidth': '500',
-            'className': 'exus-popup'
-        }
-
-        //put a pin in it and bind popup
-        myOffice.marker = L.marker(myOffice.latlong, {icon: officeIcon}).bindPopup(exusData.officePopup, exusData.customPopupOptions);
-        //also push this marker into an array
-        exusData.officemarkers.push(myOffice.marker);
-
     }
 
     //create layer group for office markers (think this is just a layer, but is a group of markers)
@@ -129,10 +143,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
     //create feature group for getting the bounds of all markers (seems unecessary to have to do this as well as a layer group...)
     var myFeatureGroup = L.featureGroup(exusData.officemarkers);
+    //console.log(myFeatureGroup)
 
-    //fit map to bounds of feature group 
-    //https://stackoverflow.com/questions/16845614/zoom-to-fit-all-markers-in-mapbox-or-leaflet
-    map.fitBounds(myFeatureGroup.getBounds().pad(0.05)); 
+    map.fitBounds(myFeatureGroup.getBounds().pad(0.05)); //https://stackoverflow.com/questions/16845614/zoom-to-fit-all-markers-in-mapbox-or-leaflet
 
 
     //****************************************//
@@ -160,13 +173,13 @@ window.addEventListener('DOMContentLoaded', function() {
             this["capacityRow_" + exusData.energyTypes[i]].style.display="none"; //hide row for the moment
         }
         //button to see child states
-        this.button = L.DomUtil.create("button", "capControl__btn", this.div); //button obj
+        this.button = L.DomUtil.create("div", "capControl__btn", this.div); //button obj
         //this.update(); //don't think any point update yet as we don't have a country yet
         return this.div; //onAdd() must return an instance of HTML Element representing the control
     }
 
     //update control when a state or country is clicked on
-    exusData.capControl.update = function (countryOrState, featureType) {
+    exusData.capControl.update = function (countryOrState) {
         if(countryOrState) {
             this.name.innerHTML = countryOrState.name;
             this.capacity.innerHTML = countryOrState.capacityTotal + " MW";
@@ -175,38 +188,18 @@ window.addEventListener('DOMContentLoaded', function() {
                 this["capacityRow_" + exusData.energyTypes[i]].style.display=""; //show
                 this["capacityType_" + exusData.energyTypes[i]].innerHTML = exusData.energyTypes[i];
                 this["capacityValue_" + exusData.energyTypes[i]].innerHTML = countryOrState["capacity" + exusData.energyTypes[i]] + " MW";
-                //if no capacity for this energy type, hide
-                if(countryOrState["capacity" + exusData.energyTypes[i]] == 0) {
-                    this["capacityRow_" + exusData.energyTypes[i]].style.display="none";
-                }
             }
-
-
-            //if we click on a country, show "see states"
-            if(featureType=="country") {
-                if(countryOrState.states) { //if this country has some states, show the button
-                    this.button.innerHTML = "See states";
-                    this.button.style.display = "inline-block";
-
-                }
-                else { //if this country has no states, hide the button
-                    this.button.innerHTML = "";
-                    this.button.style.display = "";
-                }
-            }
-            if(featureType=="state") {
-                this.button.innerHTML = "See countries";
-                this.button.style.display = "inline-block";
-            }
+            this.button.innerHTML = "See states";
+            //if(countryOrState)
         }
     }
 
-    //add control to map
+    //add to map
     exusData.capControl.addTo(map);
     //****************************************//
 
 
-    //****************************************//
+
     //styling function
     function styleStates(feature) {
         return {
@@ -218,10 +211,9 @@ window.addEventListener('DOMContentLoaded', function() {
             fillOpacity: 0.7
         };
     }
-    //****************************************//
 
 
-    //****************************************//
+
     //interactivity
 
     //on mouseover
@@ -264,51 +256,20 @@ window.addEventListener('DOMContentLoaded', function() {
         //zoom to country
         zoomToFeature(e);
         //hide offices
-        //map.removeLayer(exusData.layers.offices);
-        //update control. This passes a properties obj back to update function for control element, and we also tell the update function this is a country
-        exusData.capControl.update(e.target.feature.properties, "country");
+        map.removeLayer(exusData.layers.offices);
+        //update control. This passes a properties obj back to update function for control element
+        exusData.capControl.update(e.target.feature.properties);
     }
 
-    //function for country click
-    function clickOnState(e) {
-        //zoom to state - we've turned this off since it makes moving quickly between many states difficult
-        //zoomToFeature(e);
-        //hide offices - turning this off to simplify map behaviour
-        //map.removeLayer(exusData.layers.offices);
-        //update control. This passes a properties obj back to update function for control element, and we also tell the update function this is a state 
-        exusData.capControl.update(e.target.feature.properties, "state");
-    }
-
-    //click on button to show states
-    function showStatesHideCountries() {
-        if (map.hasLayer(exusData.layers.countries)) map.removeLayer(exusData.layers.countries);
-        if (!map.hasLayer(exusData.layers.states)) map.addLayer(exusData.layers.states);
-        //toggle button back to countries
-        exusData.capControl.button.innerHTML = "See countries";
-    }
-
-    //click on button to show countries
-    function showCountriesHideStates() {
-        if (map.hasLayer(exusData.layers.states)) map.removeLayer(exusData.layers.states);
-        if (!map.hasLayer(exusData.layers.countries)) map.addLayer(exusData.layers.countries);
-        //toggle button back to states
-        exusData.capControl.button.innerHTML = "See states";
-    }
-
-    //event handler for button
-    exusData.capControl.button.onclick = function(e) {
-        if(exusData.capControl.button.innerHTML=="See states") showStatesHideCountries();
-        else if(exusData.capControl.button.innerHTML=="See countries") showCountriesHideStates();
-        console.log(exusData.capControl.button.value)
-        e.stopPropagation(); //stop click action bubbling to map behind control
-    };
+    //for the reset to work, define before listeners and then assign layer afterwards (unclear why...)
+    //var geojson;
 
     //listeners
     function onEachFeatureState(feature, layer) {
         layer.on({
             mouseover: highlightFeature,
             mouseout: resetHighlightState,
-            click: clickOnState
+            click: zoomToFeature
         });
     }
 
@@ -319,11 +280,21 @@ window.addEventListener('DOMContentLoaded', function() {
             click: clickOnCountry
         });
     }
-    //****************************************//
+
+    // geojson = L.geoJson(statesData, {
+    //     style: style,
+    //     onEachFeature: onEachFeature
+    // }).addTo(map);
 
 
-    //****************************************//
+
+
+
+
+
+    //*******
     //create layers and pass data
+
 
     //new GeoJSON layers for states and countries
     exusData.layers.states = L.geoJSON(
@@ -338,12 +309,18 @@ window.addEventListener('DOMContentLoaded', function() {
             onEachFeature: onEachFeatureCountry
         }).addTo(map);
 
+
     //add geojson objects to layers
-    for (let i = 0; i < exusData.states.length; i++) {
-        exusData.layers.states.addData(exusData.states[i]);
+
+    //would prefer that eD.states was a regular array so easier to loop
+    for (var key in exusData.states) {
+        if (!exusData.states.hasOwnProperty(key)) continue;
+        exusData.layers.states.addData(exusData.states[key]);
     }
-    for (let i = 0; i < exusData.countries.length; i++) {
-        exusData.layers.countries.addData(exusData.countries[i]);
+
+    for (var key in exusData.countries) {
+        if (!exusData.countries.hasOwnProperty(key)) continue;
+        exusData.layers.countries.addData(exusData.countries[key]);
     }
 
     //at the moment both layers the same col, will change
@@ -352,11 +329,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
     //we could have defined this second, but just to demonstrate method
     exusData.layers.states.bringToFront();
-    //****************************************//
-
-
-    //****************************************//
-    //Layer control element
 
     //create obj containing all layers we wish to control, and add a control element. If layer has already been added to map, this will be autoticked.
     var overlayMaps = {
@@ -364,9 +336,30 @@ window.addEventListener('DOMContentLoaded', function() {
         "Countries": exusData.layers.countries,
         "Offices": exusData.layers.offices
     };
-    //var layerControl = L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
+    var layerControl = L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
     //layerControl.collapsed = false;
-    //****************************************//
+
+
+    //hide/show layers on zoom levels - unclear if we need to do this though ***
+    map.on('zoomend', function() {
+        console.log("Zoom level " + map.getZoom());
+        if (map.getZoom() <= 8) {
+            //if (map.hasLayer(exusData.layers.states)) map.removeLayer(exusData.layers.states);
+        }
+        else {
+        }
+    });
+
+
 
 
 })
+
+
+
+
+
+
+
+
+

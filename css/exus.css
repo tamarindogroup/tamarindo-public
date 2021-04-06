@@ -1,0 +1,142 @@
+
+
+/*icon arrow animation - but this is now all inside individual embed elements*/
+/*.button:hover .button circle._svg-icon-arrow__stroke {
+  stroke-dasharray: 202;
+  stroke-dashoffset: 202;
+  animation-iteration-count: 1;
+  animation-name: icon-arrow-rotate;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+@keyframes icon-arrow-rotate {
+  to {
+    stroke-dashoffset: 0;
+  }
+}*/
+
+/*custom bullets - disabled as a bit overdesigned*/
+/*	.rich ul li {
+  	border-left: 4px solid #00ADCC;
+    padding-left: 8px;
+    list-style: none;
+    }
+
+  .rich--white ul li {
+    border-left: 4px solid white;
+    }*/
+
+/*pseudo elements of lines before - but we no longer use these as we're using divs now instead for ease of managing the styles.
+/*  .line-blue:before {
+  	content: "";
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 100px;
+    border-bottom: 8px solid #00ADCC;
+    }
+  .line-white:before {
+  	content: "";
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 100px;
+    border-bottom: 8px solid white;
+    }
+  .line-turq:before {
+  	content: "";
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 100px;
+    border-bottom: 8px solid #55C4CB;
+    }
+		.line-dblue:before {
+  	content: "";
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 100px;
+    border-bottom: 8px solid #0c3941;
+    }*/
+
+
+/* Styles for pagination element customization */
+/* classes that we can work with
+most important for styling:*/
+.fs-pagination li:not(.fs-pagination-page) {
+  display: none;
+}
+.fs-pagination a {
+  font-family: 'Montserrat', 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  border-radius: 24px !important;
+  padding: 12px 24px 12px 24px;
+  min-width: 200px;
+  min-height: 48px;
+  line-height: 40px;
+  border: none !important;
+  background-color: white;
+  text-align: center;
+  text-decoration: none !important;
+}
+
+.fs-pagination a:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.fs-pagination-page {
+  border: none !important;
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  align-items: center;
+}
+
+/*for pagination buttons on Insights page*/
+.js--pagination-container--light .fs-pagination a {
+  background-color: #00adcc !important;
+  color: white !important;
+}
+
+.fs-pagination-prev {
+
+}
+.fs-pagination-inactive {
+
+}
+.fs-pagination-active {
+
+}
+.fs-pagination-dots {
+
+}
+.fs-pagination-next {
+
+}
+
+
+/*Remove Finsweet animation on team members - this is causing a new stacking context which prevents team member 
+modals from appearing on top of later team member objects*/
+.team__tmember.team__tmember--all.fslib-fadeIn {
+  animation-name: none !important;
+}
+
+
+
+/*set custom focus states*/
+a:focus {
+  outline: none;
+  outline: #00adcc 1px solid;
+  text-decoration: underline;
+}
+/*hide focus state on click*/
+a:focus:not(:focus-visible) {
+  outline: none;
+}           
+
+

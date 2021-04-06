@@ -1,0 +1,342 @@
+/* Form fields */
+
+form .hs-form-field {
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  color: #444;
+}
+
+/* Labels */
+
+form label {
+  font-weight: 500;
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Help text - legends */
+
+form legend {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+form .hs-field-desc {
+  color: #0b4a65;
+}
+
+/* Inputs */
+
+form input[type="text"],
+form input[type="password"], 
+form input[type="datetime"], 
+form input[type="datetime-local"], 
+form input[type="date"], 
+form input[type="month"], 
+form input[type="time"], 
+form input[type="week"], 
+form input[type="number"], 
+form input[type="email"], 
+form input[type="url"], 
+form input[type="search"], 
+form input[type="tel"], 
+form input[type="color"],
+form input[type="file"],
+form textarea,
+form select 
+  {
+  color: black;
+  background-color: #FFF;
+  border: 2px solid;
+  border-radius: 3px;
+  border-color: white;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.7rem;
+  width: 100%;
+
+}
+
+/* Inputs in focus (selectors for all inputs when clicked)  */
+form input[type="text"]:focus,
+form input[type="password"]:focus, 
+form input[type="datetime"]:focus, 
+form input[type="datetime-local"]:focus, 
+form input[type="date"]:focus, 
+form input[type="month"]:focus, 
+form input[type="time"]:focus, 
+form input[type="week"]:focus, 
+form input[type="number"]:focus, 
+form input[type="email"]:focus, 
+form input[type="url"]:focus, 
+form input[type="search"]:focus, 
+form input[type="tel"]:focus, 
+form input[type="color"]:focus,
+form input[type="file"]:focus,
+form textarea:focus,
+form select:focus {}
+
+form fieldset {
+  max-width: 100% !important;
+}
+
+/* Inputs - checkbox/radio */
+
+form .inputs-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+form .inputs-list > li {
+  display: block;
+  margin: 0.7rem 0;
+}
+
+form .inputs-list input,
+form .inputs-list span {
+  vertical-align: middle;
+}
+
+form input[type=checkbox],
+form input[type=radio] {
+  cursor: pointer;
+  margin-right: 0.35rem;
+}
+
+/* Inputs - datepicker */
+
+.hs-dateinput {
+  position: relative;
+}
+
+.hs-dateinput:before {
+  content:'\01F4C5';
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.fn-date-picker .pika-table thead th {
+  color: #FFF;
+}
+
+.fn-date-picker td.is-selected .pika-button {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.fn-date-picker td .pika-button:hover,
+.fn-date-picker td .pika-button:focus {
+  border-radius: 0 !important;
+  color: #FFF;
+}
+
+/* Inputs - file picker */
+
+form input[type=file] {
+  background-color: transparent;
+  border: initial;
+  padding: initial;
+}
+
+/* Headings and text */
+
+form .hs-richtext,
+form .hs-richtext p {
+  font-size: 1rem;
+  margin: 0 0 1.4rem;
+  color: #444;
+}
+
+form .hs-richtext a {
+  color: #04798F;
+  text-decoration: underline;
+}
+
+form .hs-richtext img {
+  max-width: 100% !important;
+}
+
+/* GDPR */
+
+.legal-consent-container .hs-form-booleancheckbox-display > span,
+.legal-consent-container .hs-form-booleancheckbox-display > span p {
+  margin-left: 1rem !important;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Validation */
+
+form .hs-form-required {
+  color: #04798F;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+form .hs-input.invalid.error {
+  border-color: #04798F;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+form .hs-error-msg {
+  color: #04798F;
+  margin-top: 0.35rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+
+
+
+/* Submit button */
+
+form input[type=submit],
+form input[type=button],
+form .hs-button {
+  display: inline-block;
+  align-items: center;
+  margin: 10px;
+  border: none;
+  background-color: #04798F;
+  color: #ffd91c;
+  padding: 14px 30px 16px;
+  border-radius: 5px;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: normal;
+  word-wrap: break-word;
+  }
+
+  /*NB no longer inside form element so use hbspt-form to target more accurately*/
+  .hbspt-form div.submitted-message p {
+    color: #444;
+  }
+
+  .hbspt-form div.submitted-message a {
+    color: #04798F;
+    text-decoration: underline;
+  }
+
+/* Captcha */
+
+.grecaptcha-badge {
+  margin: 0 auto;
+}
+
+/*******************************/
+/*Colour overrides for dark forms*/
+
+.dark-form form .hs-form-field {
+  color: white;
+}
+
+.dark-form form .hs-field-desc {
+  color: #ffd91c;
+}
+
+.dark-form form .hs-richtext,
+.dark-form form .hs-richtext p {
+  color: white;
+}
+
+.dark-form form .hs-richtext a {
+  color: #ffd91c;
+}
+
+.dark-form form .hs-form-required {
+  color: #ffd91c;
+}
+
+.dark-form form .hs-input.invalid.error {
+  border-color: #ffd91c;
+}
+
+.dark-form form .hs-error-msg {
+  color: #ffd91c;
+}
+
+.dark-form form input[type=submit],
+.dark-form form input[type=button],
+.dark-form form .hs-button {
+  background-color: #ffd91c;
+  color: #0b4a65;
+  }
+
+.dark-form .hbspt-form div.submitted-message p {
+    color: white;
+  }
+
+.dark-form .hbspt-form div.submitted-message a {
+    color: #ffd91c;
+  }
+
+
+/***********************/
+/*Color overrides for white forms*/
+
+.light-form form input[type="text"],
+.light-form form input[type="password"], 
+.light-form form input[type="datetime"], 
+.light-form form input[type="datetime-local"], 
+.light-form form input[type="date"], 
+.light-form form input[type="month"], 
+.light-form form input[type="time"], 
+.light-form form input[type="week"], 
+.light-form form input[type="number"], 
+.light-form form input[type="email"], 
+.light-form form input[type="url"], 
+.light-form form input[type="search"], 
+.light-form form input[type="tel"], 
+.light-form form input[type="color"],
+.light-form form input[type="file"],
+.light-form form textarea,
+.light-form form select 
+  {
+    border-color: #242B61;
+  }
+
+.light-form form .hs-field-desc {
+  color: #242B61;
+}
+
+.light-form form .hs-richtext a {
+  color: #EA6556;
+}
+
+.light-form form .hs-form-required {
+  color: #EA6556;
+}
+
+.light-form form .hs-input.invalid.error {
+  border-color: #EA6556;
+}
+
+.light-form form .hs-error-msg {
+  color: #EA6556;
+}
+
+.light-form form input[type=submit],
+.light-form form input[type=button],
+.light-form form .hs-button {
+  background-color: #4FA3DB;
+  color: #ffffff;
+ }
+
+
+.light-form .hbspt-form div.submitted-message a {
+  color: #4FA3DB;
+
+}
