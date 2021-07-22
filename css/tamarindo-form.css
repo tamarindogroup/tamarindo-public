@@ -295,6 +295,12 @@ form .hs-error-msg {
   font-weight: 400;
 }
 
+form .hs-error-msgs label {
+    color: var(--form-color-alert);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
 
 
 
