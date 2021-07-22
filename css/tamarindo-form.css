@@ -42,8 +42,21 @@
     --form-color-button-text: white;
   }
 
+/* default form styling if only dark class applied*/
+.form--dark {
+    --form-color-text: white;
+    --form-color-bg: var(--tamarindo-darkblue); /*generally not used*/
+    --form-color-alert: var(--tamarindo-red);
+    --form-color-input-bg: white;
+    --form-color-input-border: white;
+    --form-color-input-text: black;
+    --form-color-link: var(--tamarindo-red);
+    --form-color-button-bg: var(--tamarindo-midblue);
+    --form-color-button-text: white;
+    }
+
 /* default form styling for networks */  
-.form--networks {
+.form--awaw, .form--networks {
   --form-color-text: var(--awaw-midgrey);
   --form-color-bg: white; /*generally not used*/
   --form-color-alert: var(--awaw-blue);
@@ -56,7 +69,7 @@
 }
 
 /* dark form styling for networks */  
-.form--networks.form--dark {
+.form--awaw.form--dark, .form--networks.form--dark {
   --form-color-text: white;
   --form-color-bg: var(--awaw-darkblue); /*generally not used*/
   --form-color-alert: var(--awaw-yellow);
