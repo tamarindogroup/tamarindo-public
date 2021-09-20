@@ -81,8 +81,8 @@
   --form-color-button-text: var(--awaw-darkblue);
 }
 
-/* default form styling for tamarindo */  
-.form--tamarindo {
+/* default form styling for tamarindo and for default */  
+.form--tamarindo, form {
   --form-color-text: var(--awaw-midgrey);
   --form-color-bg: white; /*generally not used*/
   --form-color-alert: var(--tamarindo-red);
