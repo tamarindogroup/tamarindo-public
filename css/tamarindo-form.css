@@ -344,7 +344,7 @@ form .hs-button {
 
   /* Success message */
 
-  /*NB no longer inside form element so use hbspt-form to target more accurately*/
+  /* NB no longer inside form element so use hbspt-form to target more accurately */
   .hbspt-form div.submitted-message p {
     color: var(--form-color-text);
   }
@@ -357,7 +357,7 @@ form .hs-button {
 /* Captcha */
 
 .grecaptcha-badge {
-  margin: 0 auto;
+  margin: 10px;
 }
 
 
