@@ -29,13 +29,13 @@
 /*******************/
 /* Form colours*/
 
-/* default form styling if class not applied */
+/* default form styling if no class applied */
 :root {
     --form-color-text: var(--awaw-midgrey);
     --form-color-bg: white; /*generally not used*/
     --form-color-alert: var(--tamarindo-red);
     --form-color-input-bg: white;
-    --form-color-input-border: var(--tamarindo-darkblue);
+    --form-color-input-border: var(--tamarindo-midgrey);
     --form-color-input-text: black;
     --form-color-link: var(--tamarindo-red);
     --form-color-button-bg: var(--tamarindo-midblue);
@@ -61,7 +61,7 @@
   --form-color-bg: white; /*generally not used*/
   --form-color-alert: var(--awaw-blue);
   --form-color-input-bg: white;
-  --form-color-input-border: var(--awaw-darkblue);
+  --form-color-input-border: var(--tamarindo-midgrey);
   --form-color-input-text: black;
   --form-color-link: var(--awaw-blue);
   --form-color-button-bg: var(--awaw-blue);
@@ -87,7 +87,7 @@
   --form-color-bg: white; /*generally not used*/
   --form-color-alert: var(--tamarindo-red);
   --form-color-input-bg: white;
-  --form-color-input-border: var(--tamarindo-darkblue);
+  --form-color-input-border: var(--tamarindo-midgrey);
   --form-color-input-text: black;
   --form-color-link: var(--tamarindo-red);
   --form-color-button-bg: var(--tamarindo-midblue);
