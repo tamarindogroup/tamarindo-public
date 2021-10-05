@@ -55,6 +55,19 @@
     --form-color-button-text: white;
     }
 
+/* default form styling for tamarindo and for default */  
+.form--tamarindo, form {
+  --form-color-text: var(--awaw-midgrey);
+  --form-color-bg: white; /*generally not used*/
+  --form-color-alert: var(--tamarindo-red);
+  --form-color-input-bg: white;
+  --form-color-input-border: var(--tamarindo-midgrey);
+  --form-color-input-text: black;
+  --form-color-link: var(--tamarindo-red);
+  --form-color-button-bg: var(--tamarindo-midblue);
+  --form-color-button-text: white;
+}
+
 /* default form styling for networks */  
 .form--awaw, .form--networks {
   --form-color-text: var(--awaw-midgrey);
@@ -79,19 +92,6 @@
   --form-color-link: var(--awaw-yellow);
   --form-color-button-bg: var(--awaw-yellow);
   --form-color-button-text: var(--awaw-darkblue);
-}
-
-/* default form styling for tamarindo and for default */  
-.form--tamarindo, form {
-  --form-color-text: var(--awaw-midgrey);
-  --form-color-bg: white; /*generally not used*/
-  --form-color-alert: var(--tamarindo-red);
-  --form-color-input-bg: white;
-  --form-color-input-border: var(--tamarindo-midgrey);
-  --form-color-input-text: black;
-  --form-color-link: var(--tamarindo-red);
-  --form-color-button-bg: var(--tamarindo-midblue);
-  --form-color-button-text: white;
 }
 
 /* dark form styling for tamarindo */  
