@@ -43,7 +43,7 @@
   }
 
 /* default form styling if only dark class applied*/
-.form--dark form {
+.form--dark form, .embed-form.form--dark {
     --form-color-text: white;
     --form-color-bg: var(--tamarindo-darkblue); /*generally not used*/
     --form-color-alert: var(--tamarindo-red);
@@ -56,7 +56,7 @@
     }
 
 /* default form styling for tamarindo and for default */  
-.form--tamarindo form, form {
+.form--tamarindo form, form, .embed-form {
   --form-color-text: var(--awaw-midgrey);
   --form-color-bg: white; /*generally not used*/
   --form-color-alert: var(--tamarindo-red);
@@ -69,7 +69,7 @@
 }
 
 /* default form styling for networks */  
-.form--awaw form, .form--networks form {
+.form--awaw form, .form--networks form, .embed-form.form--awaw, .embed-form.form--networks {
   --form-color-text: var(--awaw-midgrey);
   --form-color-bg: white; /*generally not used*/
   --form-color-alert: var(--awaw-blue);
@@ -82,7 +82,10 @@
 }
 
 /* dark form styling for networks */  
-.form--awaw.form--dark form, .form--networks.form--dark form {
+.form--awaw.form--dark form, 
+.form--networks.form--dark form, 
+.embed-form.form--dark.form--networks, 
+.embed-form.form--dark.form--awaw {
   --form-color-text: white;
   --form-color-bg: var(--awaw-darkblue); /*generally not used*/
   --form-color-alert: var(--awaw-yellow);
@@ -95,7 +98,7 @@
 }
 
 /* dark form styling for tamarindo */  
-.form--tamarindo.form--dark form {
+.form--tamarindo.form--dark form, .embed-form.form--dark.form--tamarindo {
   --form-color-text: white;
   --form-color-bg: var(--tamarindo-darkblue); /*generally not used*/
   --form-color-alert: var(--tamarindo-red);
