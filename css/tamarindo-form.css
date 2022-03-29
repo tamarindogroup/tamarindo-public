@@ -322,9 +322,11 @@ form .hs-error-msgs label {
 
 /* Submit button */
 
-form input[type=submit],
-form input[type=button],
-form .hs-button {
+/* inclusion of :not() is a temporary patch so member report access button on AWAW is styled same as rest of AWAW site */
+
+form input[type=submit]:not(.x-btn),
+form input[type=button]:not(.x-btn),
+form .hs-button:not(.x-btn) {
   display: inline-block;
   align-items: center;
   margin: 10px;
@@ -378,4 +380,6 @@ form select {
 } 
 /*we should also have input[type="checkbox"] but this causes the checkbox 
 to be near invisible on the grey non-member form on FW.com on ios*/
+
+
 
