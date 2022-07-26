@@ -136,9 +136,11 @@
         }
 
         /* click show report button */
-        function clickButton() {
-            console.log("click");
-            showReportBtn.click();
+        function clickButton(element) {
+            console.log("fake click");
+            const click = new MouseEvent('click');
+            element.dispatchEvent(click);
+            // showReportBtn.click();
         }
         
 
@@ -191,7 +193,8 @@
                         // var fbTargetSelector = ".fbo-embed[data-fbo-id='" + itemData.flippingBookId + "'] + div[data-fbo-lightbox='yes'] > a";
                         var fbTargetSelector = "div[data-fbo-lightbox='yes'] > a";
                         event.preventDefault(); /* override existing href */
-                        try {document.querySelector(fbTargetSelector).click();} /* click fb button */
+                        // try {document.querySelector(fbTargetSelector).click();} /* click fb button */
+                        try {clickButton(document.querySelector(fbTargetSelector));}
                         catch (err) {};
                     }, false);
                     showReportBtn.disabled = false;
@@ -297,7 +300,12 @@
                     onFormSubmitted: function ($form) {
                         loadPDF();
                         showReportBtn.classList.remove("hidden");
-                        setTimeout(function() {clickButton()}, 500); /* unsure if timeout is required */
+                        var fbTargetSelector = "div[data-fbo-lightbox='yes'] > a";
+                        setTimeout(function() {
+                            clickButton(
+                                document.querySelector(fbTargetSelector)
+                                )
+                        }, 500); /* unsure if timeout is required */
                     }
                 });
             });
@@ -329,7 +337,7 @@
                 onFormSubmitted: function ($form) {
                     loadPDF();
                     showReportBtn.classList.remove("hidden");
-                    showReportBtn.click();
+                    // setTimeout(function() {clickButton()}, 500); /* unsure if timeout is required */
                 }
             });
         }
@@ -393,7 +401,7 @@
                 onFormSubmitted: function ($form) {
                     loadPDF();
                     showReportBtn.classList.remove("hidden");
-                    showReportBtn.click();
+                    // setTimeout(function() {clickButton()}, 500); /* unsure if timeout is required */
                 }
             });
         }
