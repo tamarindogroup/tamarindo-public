@@ -329,7 +329,7 @@
                 onFormSubmitted: function ($form) {
                     loadPDF();
                     showReportBtn.classList.remove("hidden");
-                    // setTimeout(function() {clickButton()}, 500); /* unsure if timeout is required */
+                    showReportBtn.click();
                 }
             });
         }
@@ -393,7 +393,7 @@
                 onFormSubmitted: function ($form) {
                     loadPDF();
                     showReportBtn.classList.remove("hidden");
-                    // setTimeout(function() {clickButton()}, 500); /* unsure if timeout is required */
+                    showReportBtn.click();
                 }
             });
         }
