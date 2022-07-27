@@ -191,8 +191,24 @@
                         // var fbTargetSelector = ".fbo-embed[data-fbo-id='" + itemData.flippingBookId + "'] + div[data-fbo-lightbox='yes'] > a";
                         var fbTargetSelector = "div[data-fbo-lightbox='yes'] > a";
                         event.preventDefault(); /* override existing href */
-                        try {document.querySelector(fbTargetSelector).click();} /* click fb button */
-                        catch (err) {};
+
+
+                        // (async() => {
+                        //     console.log("waiting for fboEmbed");
+                        //     while(!window.hasOwnProperty("fboEmbed")) // define the condition as you like
+                        //         await new Promise(resolve => setTimeout(resolve, 1000));
+                        //     console.log("fboEmbed is defined");
+                        //     if(fboEmbed) {
+                        //         try {document.querySelector(fbTargetSelector).click();} /* click fb button */
+                        //         catch (err) {};
+                        //     }
+                        // })();
+
+
+                        if(fboEmbed) {
+                            try {document.querySelector(fbTargetSelector).click();} /* click fb button */
+                            catch (err) {};
+                        }
                     }, false);
                     showReportBtn.disabled = false;
                 }
