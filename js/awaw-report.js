@@ -291,7 +291,7 @@
                     region: "na1",
                     portalId: "3372701",
                     formId: "39d6ad68-5001-4781-874d-10d275050754", /* default form ID */
-                    submitButtonClass: "x-btn", /* add class to submit button */
+                    submitButtonClass: "button", /* add class to submit button */
                     onFormReady: function ($form) { /* After form is loaded, update hidden ticket fields so we can track on HS */
                         $form.find('input[name="TICKET.subject"]').val("Report Member Access").change(); /* form submission type */
                         $form.find('input[name="TICKET.content"]').val(itemData.name).change(); /* report name */
@@ -335,7 +335,7 @@
                         return "1cfe2718-7115-481d-8a24-9167f0fcad56";
                     }
                 }()),
-                submitButtonClass: "x-btn",
+                submitButtonClass: "button",
                 onFormReady: function ($form) {
                     $form.find('[name="TICKET.subject"]').val("Report Member Access").change();
                     $form.find('[name="TICKET.content"]').val(itemData.name).change();
@@ -366,7 +366,7 @@
                         return "648469bd-a4bc-4716-8d60-b282a9dd164e";
                     }
                 }()),
-                submitButtonClass: "x-btn",
+                submitButtonClass: "button",
                 onFormReady: function ($form) {
                     $form.find('[name="TICKET.subject"]').val("Report Request").change();
                     $form.find('[name="TICKET.content"]').val(itemData.name).change();
@@ -399,7 +399,7 @@
                         return "2c6fd965-24fb-4990-ba84-90e9fe97047d";
                     }
                 }()),
-                submitButtonClass: "x-btn",
+                submitButtonClass: "button",
                 onFormReady: function ($form) {
                     $form.find('[name="TICKET.subject"]').val("Report Non-Member Access").change();
                     $form.find('[name="TICKET.content"]').val(itemData.name).change();
